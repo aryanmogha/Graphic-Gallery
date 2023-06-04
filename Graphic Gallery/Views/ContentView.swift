@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var cartManager = CartManager()
     var gridLayout: [GridItem] = [ GridItem() ]
     
     var body: some View {
@@ -18,6 +18,7 @@ struct ContentView: View {
                     
                     ForEach(productList, id: \.id) { product in
                         ProductCard(product: product)
+                            .environmentObject(cartManager)
                     }
                     
                 }
@@ -25,8 +26,13 @@ struct ContentView: View {
             }
             .navigationBarTitle("Graphic Gallery", displayMode: .inline)
             .toolbar {
-                CartButton(numberOfProducts: 1)
+                NavigationLink {
+                    CartView()
+                        .environmentObject(cartManager)
+                } label: {
+                    CartButton(numberOfProducts: cartManager.products.count)
                 }
+            }
         }
     }
 }
