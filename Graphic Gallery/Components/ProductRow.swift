@@ -16,7 +16,7 @@ struct ProductRow: View {
             Image(product.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 50)
+                .frame(width: 55)
                 .cornerRadius(10)
             
             VStack(alignment: .leading, spacing: 10) {

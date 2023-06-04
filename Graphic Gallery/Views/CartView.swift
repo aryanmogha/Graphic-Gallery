@@ -29,7 +29,7 @@ struct CartView: View {
                     }
                     .padding()
                     
-                    //PaymentButton(action: cartManager.pay)
+                    PaymentButton(action: cartManager.pay)
                         .padding()
                     
                 } else {
