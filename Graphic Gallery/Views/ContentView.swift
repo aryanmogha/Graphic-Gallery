@@ -24,6 +24,9 @@ struct ContentView: View {
                 .padding(.all, 20)
             }
             .navigationBarTitle("Graphic Gallery", displayMode: .inline)
+            .toolbar {
+                CartButton(numberOfProducts: 1)
+                }
         }
     }
 }
